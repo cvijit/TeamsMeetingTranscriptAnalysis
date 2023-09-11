@@ -1,6 +1,8 @@
 import streamlit as st
 from textblob import TextBlob
 import nltk
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 # Download NLTK corpora for sentence tokenization
 nltk.download("punkt")
@@ -86,11 +88,13 @@ def get_sentiment_label(sentiment_score):
 # Function to display the legend for highlighted colors
 def display_legend():
     st.markdown("### Legend for Highlighted Colors:")
-    st.markdown("- <span style='background-color:red'>Red</span>: Very Negative")
-    st.markdown("- <span style='background-color:orange'>Orange</span>: Negative")
-    st.markdown("- <span style='background-color:gray'>Gray</span>: Neutral")
-    st.markdown("- <span style='background-color:green'>Green</span>: Positive")
-    st.markdown("- <span style='background-color:lime'>Lime</span>: Very Positive")
+    fig, ax = plt.subplots(figsize=(6, 1))
+    colors = ["red", "orange", "gray", "green", "lime"]
+    labels = ["Very Negative", "Negative", "Neutral", "Positive", "Very Positive"]
+    patches = [mpatches.Patch(color=colors[i], label=labels[i]) for i in range(len(colors))]
+    ax.legend(handles=patches, loc='center', frameon=False)
+    ax.axis('off')
+    st.pyplot(fig)
 
 if __name__ == "__main__":
     main()
