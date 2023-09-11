@@ -1,5 +1,9 @@
 import streamlit as st
 from textblob import TextBlob
+import nltk
+
+# Download NLTK corpora for sentence tokenization
+nltk.download("punkt")
 
 # Streamlit App
 def main():
