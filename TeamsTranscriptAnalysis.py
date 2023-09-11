@@ -32,6 +32,9 @@ def main():
     # Highlight text based on sentiment
     highlight_text(transcript, sentiment)
 
+    # Display the legend for highlighted colors
+    display_legend()
+
 # Function to perform sentiment analysis
 def perform_sentiment_analysis(transcript):
     blob = TextBlob(transcript)
@@ -79,6 +82,15 @@ def get_sentiment_label(sentiment_score):
         return "Positive"
     else:
         return "Very Positive"
+
+# Function to display the legend for highlighted colors
+def display_legend():
+    st.markdown("### Legend for Highlighted Colors:")
+    st.markdown("- <span style='background-color:red'>Red</span>: Very Negative")
+    st.markdown("- <span style='background-color:orange'>Orange</span>: Negative")
+    st.markdown("- <span style='background-color:gray'>Gray</span>: Neutral")
+    st.markdown("- <span style='background-color:green'>Green</span>: Positive")
+    st.markdown("- <span style='background-color:lime'>Lime</span>: Very Positive")
 
 if __name__ == "__main__":
     main()
