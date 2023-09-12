@@ -8,10 +8,10 @@ nltk.download("punkt")
 
 # Twitter API Authentication (No user login required)
 def authenticate_twitter_api():
-    consumer_key = "your_consumer_key"
-    consumer_secret = "your_consumer_secret"
-    access_token = "your_access_token"
-    access_token_secret = "your_access_token_secret"
+    consumer_key = "****FgDSWw"
+    consumer_secret = "****16FCYI"
+    access_token = "1670821164313083904-JYkO6R8SiyF8tDwo8n2dDiOTniWCll"
+    access_token_secret = "8zO5Ff2oMEzKgnJ3VQYH4wNjyPhHmr8Pumgb6WkgX6OVG"
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
