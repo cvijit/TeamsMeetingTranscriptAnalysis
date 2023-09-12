@@ -23,6 +23,9 @@ def authenticate_twitter_api():
 def main():
     st.title("Sentiment Analysis App")
     
+    # Initialize transcript as an empty string
+    transcript = ""
+    
     # Add a selectbox to choose input type
     input_type = st.selectbox("Select input type:", ["Text Input", "Upload File", "Twitter Hashtags"])
     
@@ -92,7 +95,7 @@ def highlight_text(text, sentiment):
     for sentence in TextBlob(text).sentences:
         sentence_sentiment = sentence.sentiment.polarity
         color = sentiment_colors.get(get_sentiment_label(sentence_sentiment), "gray")
-        st.markdown(f"<span style='background-color:{color}'>{sentence}</span>", unsafe_allow_html=True)
+        st.markdown(f'<span style="background-color:{color}; color:white">{sentence}</span>', unsafe_allow_html=True)
 
 # Helper function to get sentiment label
 def get_sentiment_label(sentiment_score):
@@ -110,11 +113,11 @@ def get_sentiment_label(sentiment_score):
 # Function to display the legend for highlighted colors
 def display_legend():
     st.markdown("### Legend for Highlighted Colors:")
-    st.markdown("- <span style='background-color:red'>Red</span>: Very Negative")
-    st.markdown("- <span style='background-color:orange'>Orange</span>: Negative")
-    st.markdown("- <span style='background-color:gray'>Gray</span>: Neutral")
-    st.markdown("- <span style='background-color:green'>Green</span>: Positive")
-    st.markdown("- <span style='background-color:lime'>Lime</span>: Very Positive")
+    st.markdown("- <span style='background-color:red; color:white'>Red</span>: Very Negative")
+    st.markdown("- <span style='background-color:orange; color:white'>Orange</span>: Negative")
+    st.markdown("- <span style='background-color:gray; color:white'>Gray</span>: Neutral")
+    st.markdown("- <span style='background-color:green; color:white'>Green</span>: Positive")
+    st.markdown("- <span style='background-color:lime; color:white'>Lime</span>: Very Positive")
 
 # Define a function to fetch tweets based on hashtags using the Twitter API
 def fetch_tweets_by_hashtags(hashtags):
